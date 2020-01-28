@@ -2,10 +2,17 @@
 // Output: "255[.]100[.]50[.]0"
 
 var defangIPaddr = function(address) {
-    let copy = address;
+    let ans = '';
+
     for (let i = 0; i < address.length; i++) {
-        if (typeof address[i] !== "number") {
-            copy = address.substring(0, i) + '[.]' + address.substring(i + 1, address.length)
+        console.log(typeof parseInt(address[i]));
+        if (address[i] === "." ) {
+            ans += '[.]';
+        } else {
+            ans += address[i];
         }
     }
+    return ans;
 };
+
+console.log(defangIPaddr("255.100.50.0"));
