@@ -1,7 +1,7 @@
 const decompressRLElist = function(nums) {
     let ans = [];
     for (let i=0; i < nums.length; i++) {
-        if (nums[i] % 2 !==0) {
+        if (i % 2 !== 1 ) {
             for (let j=0; j<nums[i]; j++) {
                 ans.push(nums[i+1]);
             }
@@ -10,4 +10,4 @@ const decompressRLElist = function(nums) {
     return ans;
 }
 
-console.log(decompressRLElist([1,2,3,4]));
+console.log(decompressRLElist([42,39]));
