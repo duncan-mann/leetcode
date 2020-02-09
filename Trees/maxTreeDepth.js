@@ -33,31 +33,31 @@ let ex = {
 
 var maxDepth = function(root) {
 
-//Set initial depth to 2, because first time it will be called is on children of root (i.e second )
-const recursive = (node, dep = 2) => {
-    let depth = dep;
+    let children = [{depth: 1, node: root}];
+    let depth = 1;
 
-    let children = [];
+    while (children.length > 0) {
+        nextNode = children.shift();
+        depth = nextNode.depth;
 
-    if (node.left) {
-        children.push(node.left);
-    }
-    if (node.right) {
-        children.push(node.right);
-    }
-
-    if (children.length) {
-        for (let child of children) {
-            return recursive(child, depth + 1);
+        if (nextNode.node.left) {
+            children.push({
+                depth: (depth + 1),
+                node: nextNode.node.left
+            });
         }
+    
+        if (nextNode.node.right) {
+            children.push({
+                depth: (depth + 1),
+                node: nextNode.node.right
+            });
+        }
+
+        console.log(children);
     }
-    
+
     return depth;
-}
-
-return recursive(root);
-    
-
 };
 
 console.log(maxDepth(ex));
