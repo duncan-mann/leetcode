@@ -37,7 +37,7 @@ var maxDepth = function(root) {
     let depth = 1;
 
     while (children.length > 0) {
-        nextNode = children.shift();
+        let nextNode = children.shift();
         depth = nextNode.depth;
 
         if (nextNode.node.left) {
